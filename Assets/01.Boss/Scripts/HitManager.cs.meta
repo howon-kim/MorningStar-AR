@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: ab1f44774561551488ce87922ffeaad4
+timeCreated: 1512049144
+licenseType: Pro
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - chnage_prefab_Head: {fileID: 1629487838803682, guid: 3b1a5810accf4054e8af90803b917c81,
+      type: 2}
+  - bossNuclearParticlePrefab: {fileID: 1643957843714024, guid: 948ec9c3ec1418f41be6fbac60ba3223,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
