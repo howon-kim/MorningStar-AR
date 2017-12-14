@@ -3,19 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - FxTemporaire
-  - Enemy
-  - Bullet
-  - cube
-  - projectile
-  - SpawnPoint
-  - Shield
-  - Spawn Bounds
-  - Gate
-  - Head
-  - EnemyBullet
-  - PlayerBullet
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -25,12 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - Shootable
-  - Shield
-  - Enemy
-  - EnemyBullet
-  - PlayerBullet
-  - Player
+  - 
+  - 
+  - ARKitPlane
   - 
   - 
   - 
@@ -48,7 +33,10 @@ TagManager:
   - 
   - 
   - 
-  - Logo
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

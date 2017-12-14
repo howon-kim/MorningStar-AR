@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class RoundManager : MonoBehaviour
 {
-    [Header("Steam Controller")]
-    public SteamVR_TrackedController ctrRight;
 
-    public SteamVR_TrackedController ctrLeft;
 
     [Header("Wave Default Setting")]
     public GameObject enemy1;
@@ -107,7 +104,7 @@ public class RoundManager : MonoBehaviour
         // 게임오버 상태일 때 커맨드 조작
         if (isGameOver == true && m_state == State.OVER)
         {
-            if (ctrLeft.triggerPressed == true || ctrRight.triggerPressed == true || Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 // 재시작
                 GameRestart();

@@ -17,9 +17,6 @@ public class FireProjectile : MonoBehaviour
     // ** HTC VIVE SETTING ** //
     public GameObject steamController;
 
-    private SteamVR_TrackedController controller;
-    private SteamVR_Controller.Device device;
-    private SteamVR_TrackedObject trackedObj;
 
     // ** BULLET SETTING ** //
     public float bulletInterval;
@@ -35,13 +32,7 @@ public class FireProjectile : MonoBehaviour
         currentInterval = 0f;
         bulletDestroy = 10f;
 
-        controller = GetComponent<SteamVR_TrackedController>();
-        if (controller == null)
-        {
-            controller = gameObject.AddComponent<SteamVR_TrackedController>();
-        }
 
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
 
         // For Click Purpose
         //controller.TriggerClicked += new ClickedEventHandler(Fire);
@@ -70,7 +61,7 @@ public class FireProjectile : MonoBehaviour
             previousEffect();
         }
 
-        if ((Input.GetKey(KeyCode.Mouse0) || controller.triggerPressed) && currentInterval <= 0)
+        if ((Input.GetKey(KeyCode.Mouse0) || currentInterval <= 0))
         {
             currentInterval = bulletInterval;
             Shoot();
@@ -85,9 +76,7 @@ public class FireProjectile : MonoBehaviour
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed * 5f);
         projectile.GetComponent<ProjectileScript>().impactNormal = hit.normal;
 
-        if (steamController != null &&
-            steamController.activeInHierarchy)
-            SteamVR_Controller.Input((int)trackedObj.index).TriggerHapticPulse(3500);
+       
         /*
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, shootableMask))
         {
