@@ -11,7 +11,7 @@ public class EnemyBullet : MonoBehaviour
     private float currentTime;
 
     private int score;
-
+    private GameObject player;
     //public RoundManager manager;
     private Camera cam;
 
@@ -27,7 +27,8 @@ public class EnemyBullet : MonoBehaviour
         //bulletDamage = 15;
 
         bulletSpeed = Random.Range(5f, 10f);
-        cam = Camera.main;
+        //cam = Camera.main;
+        player = GameObject.FindGameObjectWithTag("Player");
 
         hpManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
@@ -45,7 +46,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.LookAt(cam.transform);
+        transform.LookAt(player.GetComponent<Transform>());
         transform.Translate(Vector3.forward * Time.deltaTime * bulletSpeed);
     }
 
@@ -54,6 +55,8 @@ public class EnemyBullet : MonoBehaviour
         FXVShield shield = collision.collider.gameObject.GetComponent<FXVShield>();
         ShieldHealth shieldHealth = collision.collider.gameObject.GetComponent<ShieldHealth>();
         PlayerHealth playerHealth = collision.collider.gameObject.GetComponent<PlayerHealth>();
+        iOSHapticFeedback.Instance.Trigger(iOSHapticFeedback.iOSFeedbackType.ImpactHeavy);
+
 
         if (shield)
         {

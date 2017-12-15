@@ -9,8 +9,11 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Something got hit");
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Enemy got hit");
+
             var eh = collision.gameObject.GetComponent<EnemyHealth>();
             if (eh != null)
                 eh.TakeDamage(damage, collision.contacts[0].point);
@@ -22,6 +25,9 @@ public class PlayerBullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
+
+            Debug.Log("Bullet got hit");
+
             var bulletHealth = collision.gameObject.GetComponent<BulletHealth>();
             if (bulletHealth != null)
             {

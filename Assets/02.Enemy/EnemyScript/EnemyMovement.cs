@@ -38,7 +38,7 @@ public class EnemyMovement : MonoBehaviour
         verticalSpeed = Random.Range(0.5f, 2f) * speedRate;
         player = GameObject.FindGameObjectWithTag("Player");
 
-        cam = Camera.main;
+        cam = GameObject.Find("CameraParent").GetComponentInChildren<Camera>();
         StartCoroutine(EnemyAttack());
         amplitude = Random.Range(10f, 25f);
         manager = GameObject.FindGameObjectWithTag("SpawnPoint").GetComponent<RoundManager>();
@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
     {
         tempPosition.z = Mathf.Sin(Time.realtimeSinceStartup * verticalSpeed) * amplitude;  // Sin각도를 라디안 값으로 반환. +, - 값으로 스무스하게이동
         tempPosition.x = Mathf.Sin(Time.realtimeSinceStartup * horizontalSpeed) * amplitude;
-        transform.position = new Vector3(tempPosition.x, tempPosition.y + 20f - enemy2_yDiff, tempPosition.z + 40f);  // 회전 기준 좌표 (x : 0 / y : 0 / z : 20)
+        transform.position = new Vector3(tempPosition.x, tempPosition.y  + 20f - enemy2_yDiff, tempPosition.z + 45f);  // 회전 기준 좌표 (x : 0 / y : 0 / z : 20)
         Vector3 gateVector = transform.position;
 
         if (isSpawnOver == false)
@@ -101,8 +101,9 @@ public class EnemyMovement : MonoBehaviour
             // 트랜스폼, 로테이션
             Vector3 orgPos = transform.position;
             Quaternion camDirectionRotation = Quaternion.LookRotation(cam.transform.forward);
-            Instantiate(enemyBullet, orgPos, camDirectionRotation);
+            Instantiate(enemyBullet, orgPos, player.GetComponent<Transform>().rotation);
 
+            Debug.Log("Enemy Attack");
             yield return new WaitForSeconds(waitTime);
         }
     }

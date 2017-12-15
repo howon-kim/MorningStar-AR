@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SpawnPoint
+  - Enemy
+  - Gate
+  - EnemyBullet
+  - Head
+  - Shield
+  - Spawn Bounds
+  - PlayerBullet
+  - PlayerGun
   layers:
   - Default
   - TransparentFX
@@ -13,30 +22,30 @@ TagManager:
   - UI
   - 
   - 
+  - Enemy
+  - EnemyBullet
+  - Player
+  - PlayerBullet
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - ARKitPlane
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

@@ -60,12 +60,14 @@ public class FireProjectile : MonoBehaviour
         {
             previousEffect();
         }
-
+        /*
         if ((Input.GetKey(KeyCode.Mouse0) || currentInterval <= 0))
         {
             currentInterval = bulletInterval;
             Shoot();
         }
+        */
+
         // ** 레이 업데이트 ** //
         //Debug.DrawRay(Camera.main.ScreenPointToRay(Input.mousePosition).origin, Camera.main.ScreenPointToRay(Input.mousePosition).direction * 100, Color.yellow);
     }
@@ -75,7 +77,7 @@ public class FireProjectile : MonoBehaviour
         GameObject projectile = Instantiate(projectiles[currentProjectile], muzzle.transform.position, muzzle.transform.rotation) as GameObject;
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * speed * 5f);
         projectile.GetComponent<ProjectileScript>().impactNormal = hit.normal;
-
+        iOSHapticFeedback.Instance.Trigger(iOSHapticFeedback.iOSFeedbackType.ImpactMedium);
        
         /*
         if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, shootableMask))

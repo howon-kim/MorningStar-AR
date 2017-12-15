@@ -38,6 +38,7 @@ public class BulletHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = initialHealth;
+        Debug.Log("Hello");
     }
 
     public void TakeDamage(int amount, Vector3 hitPoint)

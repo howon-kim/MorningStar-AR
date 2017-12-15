@@ -32,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
         if(isDead)
             return;
         **/
+        Debug.Log("Enemy : I am hurt");
         if (currentHealth > 0)
         {   // 적의 체력이 0 보다 높을 때
             currentHealth -= amount;
@@ -47,10 +48,15 @@ public class EnemyHealth : MonoBehaviour
 
     private void Death()
     {
+        /* Enemy 2 Clone Disabled */
+        isDead = true;
+        /* Enemy 2 Clone Disabled */
+
         if (isDead == false)
         {
             isDead = true;
             StartCoroutine(EffectManager.instance.LaunchEffect(this.transform.position, ParticleEffect.Death));
+
 
             // First Clone
             var firstClone = Instantiate(enemy2, this.transform.position, Quaternion.identity);
@@ -66,6 +72,7 @@ public class EnemyHealth : MonoBehaviour
             // SCALE *2 DOWN
             // SCORE *2 DOWN
             // HEATLH *2 DOWN
+
         }
         else
         {
